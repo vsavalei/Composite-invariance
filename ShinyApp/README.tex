@@ -1,0 +1,307 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\section{Measurement Invariance Power
+App}\label{measurement-invariance-power-app}
+
+Shiny app and R functions for computing analytic power of chi-square
+difference tests of \textbf{scale-level} (parameter-total) vs
+\textbf{item-level} measurement invariance in multiple-group one-factor
+CFA, generalizing the code behind the manuscript in
+\texttt{Old\ Jordan\ Files\ for\ Claude/}.
+
+\subsection{Run the app}\label{run-the-app}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{shiny}\SpecialCharTok{::}\FunctionTok{runApp}\NormalTok{(}\StringTok{"path/to/ShinyApp"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Requires: \texttt{lavaan}, \texttt{shiny}, \texttt{bslib},
+\texttt{ggplot2}, \texttt{DT}.
+
+\subsection{Files}\label{files}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+File
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Contents
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{app.R} & Shiny UI/server only (no statistics live here) \\
+\texttt{R/models.R} & Population specification
+(\texttt{default\_params}, \texttt{apply\_noninvariance},
+\texttt{build\_structured\_params}, \texttt{structured\_sweep},
+\texttt{pop\_moments}) and lavaan model generation for any number of
+items \emph{p} and groups \emph{G} (\texttt{make\_item\_model},
+\texttt{make\_scale\_model}) \\
+\texttt{R/power.R} & \texttt{mi\_power()} / \texttt{mi\_power\_sweep()}:
+MacCallum-Browne-Cai (2006) analytic power for metric/scalar/strict
+tests, both approaches, returned as tidy data frames \\
+\texttt{R/plots.R} & \texttt{plot\_power()}: ggplot2 power curves (solid
+= scale-level, dashed = item-level; color = overlaid condition) \\
+\texttt{validation/validate\_manuscript.R} & Reproduces every population
+RMSEA annotated in manuscript Figures 1-6 and 8 and checks power-formula
+equivalence with the original pipeline. Run:
+\texttt{Rscript\ validation/validate\_manuscript.R} (all 44 checks
+pass) \\
+\end{longtable}
+}
+
+\subsection{Scripting the functions
+directly}\label{scripting-the-functions-directly}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{invisible}\NormalTok{(}\FunctionTok{lapply}\NormalTok{(}\FunctionTok{list.files}\NormalTok{(}\StringTok{"R"}\NormalTok{, }\AttributeTok{full.names =} \ConstantTok{TRUE}\NormalTok{), source))}
+\FunctionTok{library}\NormalTok{(lavaan)}
+
+\CommentTok{\# Manuscript Fig 3 (all panels in one plot): k = 7..2 non{-}invariant intercepts}
+\NormalTok{conds }\OtherTok{\textless{}{-}} \FunctionTok{structured\_sweep}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(}\AttributeTok{p =} \DecValTok{8}\NormalTok{, }\AttributeTok{n\_groups =} \DecValTok{2}\NormalTok{, }\AttributeTok{type =} \StringTok{"intercepts"}\NormalTok{, }\AttributeTok{n\_ni =} \DecValTok{3}\NormalTok{, }\AttributeTok{magnitude =}\NormalTok{ .}\DecValTok{1}\NormalTok{),}
+  \AttributeTok{sweep\_var =} \StringTok{"n\_ni"}\NormalTok{, }\AttributeTok{values =} \DecValTok{7}\SpecialCharTok{:}\DecValTok{2}\NormalTok{)}
+\NormalTok{res }\OtherTok{\textless{}{-}} \FunctionTok{mi\_power\_sweep}\NormalTok{(conds, }\AttributeTok{tests =} \FunctionTok{c}\NormalTok{(}\StringTok{"metric"}\NormalTok{, }\StringTok{"scalar"}\NormalTok{))}
+\FunctionTok{plot\_power}\NormalTok{(res}\SpecialCharTok{$}\NormalTok{curves)}
+\NormalTok{res}\SpecialCharTok{$}\NormalTok{details   }\CommentTok{\# population RMSEA, test df, N needed for 80\% power}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Reproducing the manuscript figures in the
+app}\label{reproducing-the-manuscript-figures-in-the-app}
+
+Figure numbers refer to ``figures with captions.pdf'' (the output of
+\texttt{figure\ markdown4.Rmd}). Each 6-panel manuscript figure becomes
+\textbf{one} plot in the app: the compared values (colored curves, set
+in the ``Separate curves'' panel) correspond to the panels (a)-(f). Read
+the facet named in the ``Read'' column; the other facet shows the same
+population under the other test.
+
+Common settings for every figure (the app defaults): \emph{Model}: 2
+groups, p = 8 items, base loading .7, base residual variance .51.
+\emph{Additional settings}: N per group 50-1000, alpha = .05. Tick
+``Also test strict invariance'' for the residual-variance figures (it
+turns on automatically when the non-invariance type is set to residual
+variances).
+
+The manuscript places non-invariance on different item positions than
+the app (which always uses the last k items); because all other items
+are exchangeable this yields identical fit statistics and power.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Fig
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Non-invariance panel
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Separate-curves panel
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Read
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 (a,b) & Type: Loadings; count: 6; magnitude: per-item .1; direction:
+\textbf{Alternating +/-} & One curve per value of: Magnitude; values:
+\texttt{0.1,\ 0.2} & Metric facet: item-level (dashed) has power,
+scale-level (solid) stays at .05 \\
+1 (c,d) & as above but Type: Intercepts & same & Scalar facet \\
+1 (e,f) & as above but Type: Residual variances & same & Strict facet \\
+2 & Type: Loadings; magnitude: per-item .1; direction: All positive &
+One curve per value of: Number of non-invariant items; range 2-7 &
+Metric facet (panels a-f = 7,6,5,4,3,2 non-invariant) \\
+3 & Type: Intercepts; otherwise as Fig 2 & same & Scalar facet \\
+4 & Type: Residual variances; otherwise as Fig 2 & same & Strict
+facet \\
+5 & Type: Loadings; magnitude: \textbf{Total across non-invariant items}
+= .6; direction: All positive & One curve per value of: Number of
+non-invariant items; range 1-6 & Metric facet (per-item difference
+becomes .6/k: .1, .12, .15, .2, .3, .6) \\
+6 & Type: Intercepts; otherwise as Fig 5 & same & Scalar facet \\
+7 & Type: Residual variances; otherwise as Fig 5 & same & Strict
+facet \\
+8 & Type: Loadings; count: 3; magnitude: per-item .2; direction: All
+positive & One curve per value of: Number of items (p); values:
+\texttt{4,\ 6,\ 8,\ 10,\ 12,\ 14} & Metric facet \\
+9 & Type: Intercepts; otherwise as Fig 8 & same & Scalar facet \\
+10 & Type: Residual variances; otherwise as Fig 8 & same & Strict
+facet \\
+\end{longtable}
+}
+
+Notes: - Fig 1's panels differ only in magnitude (.1 vs .2), so the app
+shows the two panels of each pair as two colored curves in one facet.
+With the alternating direction and an even count the parameter totals
+are equal across groups, so composite comparisons are unaffected, which
+is the point of Study 1. - The manuscript curves show power of the test
+matching the manipulated parameter type only; the app additionally plots
+the other tests for the same population. For Fig 2/5/8 (loadings) the
+scalar facet is flat at alpha because intercepts remain invariant, and
+vice versa. - Exact expected rmsea values for Figs 1-6 and 8 are
+asserted in \texttt{validation/validate\_manuscript.R} (the Details
+tab's ``RMSEA (model)'' column should match the figure annotations to 3
+decimals).
+
+\subsection{Method notes / differences from the original
+scripts}\label{method-notes-differences-from-the-original-scripts}
+
+\begin{itemize}
+\tightlist
+\item
+  Noncentrality is computed from the population minimum discrepancy:
+  \texttt{nonc\ =\ (N\_total\ -\ G)\ *\ (F0\_constrained\ -\ F0\_baseline)},
+  which for G = 2 is numerically identical to the manuscript's
+  \texttt{n\ *\ df\ *\ rmsea\^{}2} but is correct for any G and
+  independent of lavaan's multi-group RMSEA convention. Baselines are
+  one invariance level lower (configural -\textgreater{} metric
+  -\textgreater{} scalar -\textgreater{} strict), fit with the same
+  approach.
+\item
+  Test df are taken from the fitted models. This silently fixes a bug in
+  the original \texttt{power.plot.doer.weak}/\texttt{.strict}, where the
+  critical value used \texttt{nrow(pop.cov1-1)} = \emph{p} df instead of
+  \emph{p - 1} for the metric test (a small effect, e.g.~power .797 vs
+  .819 at n = 300 in Fig 1a).
+\item
+  Scale-level models for G groups impose G - 1 total-equality
+  constraints per parameter class (plus the first-intercept anchor for
+  scalar).
+\item
+  Population latent variance is 1 and latent mean 0 in all groups;
+  ad-hoc effect sizes (beta\_spurious, d\_spurious) are intentionally
+  omitted.
+\end{itemize}
+
+\end{document}
