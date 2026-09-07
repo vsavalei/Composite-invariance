@@ -2,13 +2,13 @@
 # models.R -- population specification and lavaan model generation for
 # scale-level vs item-level measurement invariance power analysis.
 #
-# Replaces the hardcoded model strings in "power analysis models.R":
-# every model is generated for arbitrary number of items (p) and groups (G).
+# Every model is generated for an arbitrary number of items (p) and
+# groups (G) rather than written out as a fixed model string.
 #
 # A population is a `mi_params` list:
 #   p, n_groups, and three p x G matrices: loadings, intercepts, residuals.
 # Latent variance is fixed to 1 and latent mean to 0 in every population
-# group (as in the manuscript); the observed moments are computed directly:
+# group; the observed moments are computed directly:
 #   Sigma_g = lambda_g lambda_g' + diag(theta_g),  mu_g = nu_g
 # ---------------------------------------------------------------------------
 
@@ -117,7 +117,7 @@ make_item_model <- function(p) {
 #' Multi-group lavaan model with *scale-level* (parameter total) invariance
 #' constraints up to `level` ("metric", "scalar", or "strict").
 #'
-#' Generalizes the manuscript's ana.mods.comp.* models to any p and G:
+#' Built for any p and G:
 #'   metric:  sum of loadings equal across groups (loading 1 fixed to 1)
 #'   scalar:  + first intercept anchored + intercept totals equal;
 #'              latent means free in groups 2..G

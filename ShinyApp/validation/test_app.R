@@ -3,9 +3,8 @@
 # server logic behind every sidebar control, the contents of each tab, the
 # plot, the downloads, and the error paths.
 #
-# Complements validate_manuscript.R, which checks the statistics against the
-# published figures; this file checks that the app wires those functions up
-# correctly and displays the right thing.
+# This file checks that the app wires the functions in R/ up correctly and
+# displays the right thing; it does not re-derive the statistics themselves.
 #
 # Run from the ShinyApp folder:  Rscript validation/test_app.R
 # ---------------------------------------------------------------------------

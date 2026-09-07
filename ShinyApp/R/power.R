@@ -2,18 +2,15 @@
 # power.R -- analytic power of chi-square difference tests for scale-level
 # and item-level measurement invariance (MacCallum, Browne & Cai, 2006).
 #
-# Replaces the power.plot.doer.* functions from
-# "power analysis plot function.R", with three changes:
+# Three properties of this implementation:
 #   * computation is separated from plotting and returns tidy data frames
-#   * degrees of freedom come from the fitted models, fixing the original
-#     df bug in the metric-test critical value (nrow(pop.cov1-1) gave p
-#     instead of p-1)
+#   * degrees of freedom come from the fitted models rather than being
+#     assumed, so the item-level metric test uses (p - 1)(G - 1) df
 #   * the noncentrality parameter is computed from the population minimum
 #     discrepancy F0 = chisq / N_big, so it is correct for any number of
 #     groups regardless of lavaan's multi-group RMSEA convention:
 #       nonc(N) = (N_total - G) * (F0_constrained - F0_baseline)
-#     For G = 2 this is numerically identical to the manuscript's
-#     n * df * rmsea^2 (verified against the published figures).
+#     For G = 2 this is numerically identical to n * df * rmsea^2.
 # ---------------------------------------------------------------------------
 
 #' Fit an analysis model to the population moments with a huge sample size.
@@ -42,7 +39,7 @@ fit_pop_model <- function(model, moments, group.equal = character(0),
 #'
 #' For each requested test the baseline is the model one invariance level
 #' lower (configural for metric, metric for scalar, scalar for strict),
-#' fit with the same approach, as in the manuscript.
+#' fit with the same approach.
 #'
 #' @param params  an `mi_params` population (see models.R)
 #' @param tests   subset of c("metric", "scalar", "strict")

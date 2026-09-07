@@ -1,6 +1,6 @@
 # ---------------------------------------------------------------------------
 # plots.R -- ggplot2 presentation of mi_power() / mi_power_sweep() results.
-# Solid = scale-level, dashed = item-level (as in the manuscript figures).
+# Solid = scale-level, dashed = item-level.
 # When several conditions are overlaid they all stay in one panel, so that
 # the two approaches remain directly comparable: each approach keeps its own
 # hue (blue / orange) and the compared values run dark-to-light within that
